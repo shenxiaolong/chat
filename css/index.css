@@ -1,0 +1,114 @@
+.chat-icon {
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  width: 64px;
+  height: 64px;
+  background: url(../images/robot.png) no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.chat-wrap {
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.chat-title-wrap {
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: #dedede;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+}
+.chat-title {
+  flex: 1;
+}
+.chat-close {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chat-content {
+  height: 307px;
+  padding: 10px;
+  overflow: auto;
+}
+.chat-prompt {
+  height: 40px;
+  padding: 5px;
+  border-top: 1px solid #ccc;
+  background-color: #dedede;
+}
+.chat-prompt ul,
+.chat-prompt li {
+  display: inline-block;
+}
+.chat-entry {
+  height: 70px;
+  padding: 5px;
+  border-top: 1px solid #ccc;
+}
+.chat-entry textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.chat-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.chat-pictore {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.chat-item-robot .chat-pictore {
+  background-image: url(../images/robot.png);
+  margin-right: 5px;
+}
+.chat-item-user .chat-pictore {
+  background-image: url(../images/user.png);
+  margin-left: 5px;
+  background-size: 70%;
+  background-position: center;
+  order: 1;
+}
+.chat-item-user {
+  justify-content: flex-end;
+}
+.chat-text {
+  position: relative;
+  max-width: 80%;
+  padding: 13px 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+.chat-item-user .chat-text {
+  background-color: #85f17f;
+}
+.chat-text::after {
+  position: absolute;
+  top: 18px;
+  left: -10px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #f1f1f1 transparent transparent;
+}
+.chat-item-user .chat-text::after {
+  left: auto;
+  right: -10px;
+  transform: rotate(180deg);
+  border-right-color: #85f17f;
+}

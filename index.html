@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>快站机器人</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <div id="app">
+      <h2>CASE：</h2>
+      <ol>
+        <li @click="robotSpeak(robotMessages['1001'].message)">您好，我是快站机器人小安，我可以帮助您解决一些常见的问题，尝试问我一些问题吧。</li>
+        <li @click="robotSpeak(robotMessages['1002'].message)">系统监测到您还没有任何权限</li>
+      </ol>
+      <div
+        class="chat-icon"
+        v-if="!status"
+        @click="chatPanelShow"></div>
+      <div
+        class="chat-wrap"
+        v-if="status">
+        <div class="chat-title-wrap">
+          <h3 class="chat-title">小安</h3>
+          <div
+            class="chat-close"
+            @click="chatPanelHide">&times;</div>
+        </div>
+        <div
+          class="chat-content"
+          ref="chatContent">
+
+          <div
+            v-for="item in records"
+            class="chat-item"
+            :class="'chat-item-' + item.who">
+            <span class="chat-pictore"></span>
+            <div class="chat-text">
+              {{ item.message }}
+            </div>
+          </div>
+
+        </div>
+        <div class="chat-prompt">
+          快速回复：
+          <ul>
+            <li>1、查询平台管理员；</li>
+            <li>2、查询现有领域。</li>
+          </ul>
+        </div>
+        <div class="chat-entry">
+          <textarea
+            @keyup.enter.exact="userSpeak"
+            v-model="userMessage"></textarea>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
